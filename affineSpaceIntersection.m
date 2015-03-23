@@ -47,9 +47,6 @@ intersection = sol(1:size(varargin{1},1)).'*varargin{1};
 %% Check if the intersection is only a single point or an entire space
 N = null(M);
 if ~isempty(N)
-    warning('affineSpaceIntersection:UnderdeterminedSystem', ...
-            ['Not enough affine spaces were provided to determine a single intersection point.\n'...
-             'Outputting entire affine intersection space.']);
     dirVecs = N(1:size(varargin{1},1),:).'*varargin{1};
     intersection = [intersection; ...
                          bsxfun(@plus,intersection,dirVecs)];
